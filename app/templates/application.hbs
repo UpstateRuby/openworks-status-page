@@ -1,18 +1,11 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">OpenWorks Status</a>
-    </div>
-    <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-      </ul>
-    </div>
+<nav class="navbar navbar-dark bg-inverse navbar-fixed-top">
+  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+    &#9776;
+  </button>
+  <div class="collapse navbar-toggleable-xs" id="collapsingNavbar">
+    <a class="navbar-brand" href="#">OpenWorks Status</a>
+    <ul class="nav navbar-nav">
+    </ul>
   </div>
 </nav>
 
@@ -20,8 +13,6 @@
   {{outlet}}
 </div>
 
-<footer class="footer">
-  <div class="container">
-    <p class="text-muted">Built with ❤ by <a href="https://github.com/orgs/UpstateRuby/people">Upstate Ruby</a></p>
-  </div>
-</footer>
+<nav class="navbar navbar-fixed-bottom navbar-light bg-faded">
+  <span class="text-muted">Built with ❤ by <a href="https://github.com/orgs/UpstateRuby/people">Upstate Ruby</a></span>
+</nav>

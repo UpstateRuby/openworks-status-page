@@ -1,0 +1,10 @@
+<div class="card-block">
+  <h4 class="card-title">{{thing.name}}</h4>
+  {{#if isEditingReason}}
+    {{input type="text" value=thing.reason insert-newline="doneEditingReason" cancel="cancelEditReason"}}
+    <a {{action "doneEditingReason"}} href="#" class="btn btn-success btn-sm">Done</a>
+  {{else}}
+    <p {{action "editReason"}} class="card-text">{{thing.reason}}</p>
+  {{/if}}
+</div>
+{{yeild}}
