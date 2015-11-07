@@ -1,8 +1,8 @@
-import Mirage, {faker}  from 'ember-cli-mirage';
+import Mirage/*, {faker} */ from 'ember-cli-mirage';
 
 export default Mirage.Factory.extend({
-  name: faker.commerce.product,
-  status: faker.random.number,
-  reason: faker.lorem.sentence,
+  name: "HVAC",
+  status: 0,
+  reason: faker.company.bs,
   location: null
 });

@@ -1,4 +1,4 @@
 export default function(server) {
-  let location = server.create('location', {name: "OpenWorks"});
-  server.create('thing', {name: "HVAC", location: location});
+  let location = server.create('location');
+  server.create('thing', {location: location});
 }
