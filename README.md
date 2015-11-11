@@ -15,7 +15,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone git@github.com:UpstateRuby/openworks-status-page.git` this repository
 * change into the new directory
 * `npm install`
 * `bower install`
@@ -32,7 +32,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 ### Running Tests
 
 * `ember test`
-* `ember test --server`
+* `ember test --server` will watch for file changes and rerun the test suite.
 
 ### Building
 
@@ -41,7 +41,8 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+<!-- TODO -->
+Not currently deployed.
 
 ## Further Reading / Useful Links
 
