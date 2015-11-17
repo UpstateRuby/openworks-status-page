@@ -3,15 +3,32 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['card'],
   actions: {
-    editReason() {
-      this.toggleProperty('isEditingReason');
+    editName() {
+      this.set('isEditingName', true);
+      this.set('priorName', this.get('thing').get('name'));
     },
-    doneEditingReason() {
-      this.toggleProperty('isEditingReason');
-      console.log(this.get('thing'));
+    doneEditingName() {
+      this.toggleProperty('isEditingName');
+      this.get('thing').save();
     },
-    cancelEditReason() {
-      this.toggleProperty('isEditingReason');
+    cancelEditName() {
+      this.toggleProperty('isEditingName');
+      this.get('thing').set('name', this.get('priorName'));
+    },
+    addProperty() {
+      this.set('isAddingProperty', true);
+      let newProp = this.get('thing').get('properties').createRecord({
+        thing: this.get('thing')
+      });
+      this.set('newProperty', newProp);
+    },
+    saveNewProperty() {
+      this.set('isAddingProperty', false);
+      this.get('newProperty').save();
+    },
+    cancelAddingProperty() {
+      this.set('isAddingProperty', false);
+      this.get('newProperty').deleteRecord();
     }
   }
 });

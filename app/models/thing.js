@@ -5,5 +5,5 @@ export default DS.Model.extend({
   status: DS.attr(),
   reason: DS.attr(),
   location: DS.belongsTo('location'),
-  attributes: DS.belongsTo('attribute'),
+  properties: DS.hasMany('property'),
 });

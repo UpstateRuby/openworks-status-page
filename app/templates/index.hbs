@@ -1,10 +1,10 @@
 <h2>Things: </h2>
-<div class="card-deck-wrapper">
-  <div class="card-deck">
-    {{#each things as |thing|}}
+<div class="row">
+  {{#each things as |thing|}}
+    <div class="col-md-3">
       {{#status-card thing=thing}}
       {{/status-card}}
-    {{/each}}
-    {{outlet}}
-  </div>
+    </div>
+  {{/each}}
+  {{outlet}}
 </div>
