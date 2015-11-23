@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['card'],
+  units: ['Fahrenheit', 'Percentage'],
   actions: {
     editName() {
       this.set('isEditingName', true);
@@ -29,6 +30,9 @@ export default Ember.Component.extend({
     cancelAddingProperty() {
       this.set('isAddingProperty', false);
       this.get('newProperty').deleteRecord();
+    },
+    selectUnit(unit) {
+      this.get('newProperty').set('unit', unit);
     }
   }
 });
