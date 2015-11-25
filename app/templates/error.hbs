@@ -1,0 +1,9 @@
+<h1>Something Went Wrong</h1>
+{{#each model.errors as |error|}}
+<h4>{{error.title}}</h4>
+{{/each}}
+{{model}}
+<pre><code>
+{{model.stack}}
+</code></pre>
+{{outlet}}
