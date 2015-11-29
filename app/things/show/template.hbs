@@ -5,8 +5,7 @@
 <div class="row">
   {{#each model.properties as |property|}}
     <div class="col-md-3">
-      <h4 class="display-2">{{property.value}}</h4>
-      <h5 class="text-muted">{{property.name}}</h5>
+      {{property-card property}}
     </div>
   {{/each}}
 </div>
