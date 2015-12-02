@@ -1,12 +1,10 @@
 <div class="card-block">
-  <h4 {{action "editName"}} class="card-title">
-  {{#if isEditingName}}
-    {{input type="text" autofocus="true" value=thing.name insert-newline="doneEditingName" focus-out="doneEditingName" escape-press="cancelEditName"}}
-  {{else}}
+  {{#link-to "thing" thing}}
+  <h4 data-thing-id={{thing.id}} class="card-title thing-name">
     {{thing.name}}
-  {{/if}}
   </h4>
-  <h6 class="card-subtitle text-muted">{{thing.location.name}}</h6>
+  {{/link-to}}
+  <h6 class="card-subtitle text-muted location-name">{{thing.location.name}}</h6>
   <hr>
   {{#if thing.properties}}
   <ul class="list-unstyled">
