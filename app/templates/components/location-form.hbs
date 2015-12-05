@@ -1,0 +1,10 @@
+<form>
+  <fieldset class="form-group">
+    <label>Name</label>
+    {{input value=location.name type="text" class="form-control" placeholder="New location name"}}
+    <small class="text-muted">Seriously, all we need is a name.</small>
+  </fieldset>
+<button {{action "save"}} class="btn btn-success">Save</button>
+{{#link-to "locations" class="btn btn-danger"}}Cancel{{/link-to}}
+</form>
+{{yield}}

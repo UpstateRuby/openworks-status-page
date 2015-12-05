@@ -37,6 +37,14 @@ export default function(){
       use: ['toRight']
     })
   );
+
+  this.transition(
+    this.fromRoute('locations.index'),
+    this.toRoute('locations.new'),
+    this.use('fade'),
+    this.reverse('fade')
+  );
+
   // Components
   // status-card
   this.transition(

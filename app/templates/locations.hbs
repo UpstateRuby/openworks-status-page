@@ -1,9 +1,6 @@
-<h2>Locations</h2>
 <div class="row">
-  {{#each model as |location|}}
-    <div class="col-md-3">
-      {{#link-to "location" location}}{{location.name}}{{/link-to}}
-    </div>
-  {{/each}}
-  {{outlet}}
+  <div class="col-md-12">
+    <h2>Locations</h2>
+  </div>
 </div>
+{{liquid-outlet}}

@@ -17,12 +17,12 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       api: {
-        // host: TODO
+        host: 'http://openworks-status-api.herokuapp.com'
       }
     },
 
     contentSecurityPolicy: {
-      'connect-src': "'self' http://localhost:3000",
+      'connect-src': "'self' http://localhost:3000 http://openworks-status-api.herokuapp.com",
     }
   };
 
@@ -33,7 +33,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV.APP.api.host = 'http://localhost:3000';
+    ENV.APP.api.host = 'http://openworks-status-api.herokuapp.com';
   }
 
   if (environment === 'test') {

@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-12">
+    <h6 class="text-center">
+      <strong>
+        {{if title title "Expecting to see something here?"}}
+      </strong>
+    </h6>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    {{yield}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    {{#link-to "locations.new" class="btn btn-success"}}Add Location{{/link-to}}
+  </div>
+</div>
