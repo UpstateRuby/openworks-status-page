@@ -1,8 +1,13 @@
 <div class="row">
   {{#each model.things as |thing|}}
     <div class="col-md-3">
-        {{#status-card thing=thing}}
-        {{/status-card}}
+      {{status-card thing=thing}}
+    </div>
+  {{else}}
+    <div class="col-md-12">
+      {{#empty-state "This location isn't tracking any Things yet"}}
+        {{#link-to "things.new" class=" btn btn-success"}}Add a Thing{{/link-to}}
+      {{/empty-state}}
     </div>
   {{/each}}
   {{outlet}}

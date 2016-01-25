@@ -11,6 +11,10 @@ Router.map(function() {
   });
   this.route('location', { path: '/location/:location_id' });
   this.route('thing', { path: '/thing/:thing_id' });
+
+  this.route('things', function() {
+    this.route('new');
+  });
 });
 
 export default Router;

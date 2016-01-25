@@ -1,0 +1,15 @@
+<form>
+  <fieldset class="form-group">
+    <label>Name</label>
+    {{input value=thing.name type="text" class="form-control" placeholder="New thing name"}}
+    <small class="text-muted"></small>
+    <label>Location</label>
+    {{#power-select options=locations selected=thing.location onchange=(action "setLocation") as |location|}}
+      {{location.name}}
+    {{/power-select}}
+    <small class="text-muted"></small>
+  </fieldset>
+  <button {{action "save"}} class="btn btn-success">Save</button>
+  {{#link-to "things" class="btn btn-danger"}}Cancel{{/link-to}}
+  {{yield}}
+</form>

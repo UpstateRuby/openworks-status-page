@@ -1,12 +1,14 @@
 <div class="row">
   {{#each model as |location|}}
-      <div class="col-md-3">
-        {{#link-to "location" location}}{{location.name}}{{/link-to}}
-      </div>
+    <div class="col-md-3">
+      {{#link-to "location" location}}{{location.name}}{{/link-to}}
+    </div>
   {{else}}
-      <div class="col-md-12">
-        {{empty-state "No Locations Yet"}}
-      </div>
+    <div class="col-md-12">
+      {{#empty-state "No Locations Yet"}}
+        {{#link-to "locations.new" class="btn btn-success"}}Add Location{{/link-to}}
+      {{/empty-state}}
+    </div>
   {{/each}}
 </div>
 {{liquid-outlet}}
