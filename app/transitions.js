@@ -1,7 +1,7 @@
 import Ember from "ember";
 
 export default function(){
-  let duration = 1000;
+  let duration = 800;
   this.setDefault({duration: duration });
   if (Ember.testing) {
     this.setDefault({duration: 10 });
