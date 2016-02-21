@@ -12,7 +12,9 @@
     "jquery": "^2.1.4",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "qunit": "~1.18.0",
-    "bootstrap": "4.0.0-alpha"
+    "bootstrap": "4.0.0-alpha",
+    "pretender": "~0.10.1",
+    "Faker": "~3.0.0"
   },
   "resolutions": {
     "ember": "2.2.x"
