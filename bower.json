@@ -1,22 +1,9 @@
 {
   "name": "openworks-status-page",
   "dependencies": {
-    "ember": "2.2.x",
-    "ember-cli-shims": "0.0.6",
-    "ember-cli-test-loader": "0.2.1",
-    "ember-data": "2.2.x",
-    "ember-load-initializers": "0.1.7",
-    "ember-qunit": "0.4.16",
-    "ember-qunit-notifications": "0.1.0",
-    "ember-resolver": "~0.1.20",
-    "jquery": "^2.1.4",
-    "loader.js": "ember-cli/loader.js#3.2.1",
-    "qunit": "~1.18.0",
-    "bootstrap": "4.0.0-alpha",
-    "pretender": "~0.10.1",
-    "Faker": "~3.0.0"
-  },
-  "resolutions": {
-    "ember": "2.2.x"
+    "ember": "~2.3.1",
+    "ember-cli-shims": "0.1.0",
+    "ember-cli-test-loader": "0.2.2",
+    "ember-qunit-notifications": "0.1.0"
   }
 }
