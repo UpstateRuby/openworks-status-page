@@ -6,14 +6,15 @@ moduleForComponent('status-card', 'Integration | Component | status card', {
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
 
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
   this.render(hbs`{{status-card}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.ok(this.$().text().trim().indexOf('No properties are associated with') === 0);
+  assert.ok(this.$().text().trim().indexOf('Add a Property'));
 
   // Template block usage:
   this.render(hbs`
@@ -22,5 +23,5 @@ test('it renders', function(assert) {
     {{/status-card}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.ok(this.$().text().trim().indexOf('template block text') === -1);
 });

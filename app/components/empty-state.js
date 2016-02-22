@@ -5,7 +5,7 @@ const EmptyStateComponent = Ember.Component.extend({
 });
 
 EmptyStateComponent.reopenClass({
-  positionalParams: ['title'],
+  positionalParams: ['title']
 });
 
 export default EmptyStateComponent;

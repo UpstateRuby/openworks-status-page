@@ -6,13 +6,13 @@ moduleForComponent('empty-state', 'Integration | Component | empty state', {
 });
 
 test('it renders', function(assert) {
-  
+
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
 
   this.render(hbs`{{empty-state}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.ok(this.$().text().trim().indexOf('Expecting to see something here?') === 0);
 
   // Template block usage:" + EOL +
   this.render(hbs`
@@ -21,5 +21,5 @@ test('it renders', function(assert) {
     {{/empty-state}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.ok(this.$().text().trim().indexOf('template block text'));
 });
