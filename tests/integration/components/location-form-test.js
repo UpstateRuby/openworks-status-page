@@ -6,13 +6,13 @@ moduleForComponent('location-form', 'Integration | Component | location form', {
 });
 
 test('it renders', function(assert) {
-  
+
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
 
   this.render(hbs`{{location-form}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.ok(this.$().text().trim().indexOf('Name') === 0);
 
   // Template block usage:" + EOL +
   this.render(hbs`
@@ -21,5 +21,5 @@ test('it renders', function(assert) {
     {{/location-form}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.ok(this.$().text().trim().indexOf('template block text'));
 });
