@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/UpstateRuby/openworks-status-page.svg?branch=master)](https://travis-ci.org/UpstateRuby/openworks-status-page)
+
 # Openworks-status-page
 
 This README outlines the details of collaborating on this Ember application.
