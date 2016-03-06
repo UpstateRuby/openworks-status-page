@@ -2,12 +2,7 @@ import { Factory, faker } from 'ember-cli-mirage';
 
 export default Factory.extend({
   name(i) {
-    return faker.list.cycle(
-      'HVAC',
-      'Keezer',
-      'Lighting',
-      'Security'
-    )(i);
+    return `Thing ${i+1}`;
   },
   status(){
     return faker.random.number();
