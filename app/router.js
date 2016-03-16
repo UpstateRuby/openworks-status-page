@@ -7,9 +7,10 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('locations', function() {
+    this.route('list', { path: '/' });
     this.route('new');
+    this.route('show', { path: ':location_id' });
   });
-  this.route('location', { path: '/location/:location_id' });
   this.route('thing', { path: '/thing/:thing_id' });
 });
 

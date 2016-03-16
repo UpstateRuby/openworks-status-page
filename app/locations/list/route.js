@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   },
   afterModel(model) {
     if (model.get('length') === 1) {
-      this.transitionTo('location', model.get('firstObject'));
+      this.transitionTo('locations.show', model.get('firstObject'));
     }
   }
 });
