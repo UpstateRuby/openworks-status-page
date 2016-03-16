@@ -11,7 +11,10 @@ Router.map(function() {
     this.route('new');
     this.route('show', { path: ':location_id' });
   });
-  this.route('thing', { path: '/thing/:thing_id' });
+
+  this.route('things', function() {
+    this.route('show', { path: ':thing_id' });
+  });
 });
 
 export default Router;
