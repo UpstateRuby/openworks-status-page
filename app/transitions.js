@@ -17,8 +17,8 @@ export default function(){
   );
 
   this.transition(
-    this.fromRoute('location'),
-    this.toRoute('thing'),
+    this.fromRoute('locations'),
+    this.toRoute('things'),
     this.use('explode', {
       matchBy: 'data-thing-id',
       use: ['text-fly-to'],
@@ -28,8 +28,8 @@ export default function(){
   );
 
   this.transition(
-    this.fromRoute('thing'),
-    this.toRoute('location'),
+    this.fromRoute('things'),
+    this.toRoute('locations'),
     this.use('explode', {
       matchBy: 'data-thing-id',
       use: ['text-fly-to'],
@@ -39,7 +39,7 @@ export default function(){
   );
 
   this.transition(
-    this.fromRoute('locations.index'),
+    this.fromRoute('locations'),
     this.toRoute('locations.new'),
     this.use('fade'),
     this.reverse('fade')
