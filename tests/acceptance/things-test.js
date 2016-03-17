@@ -8,10 +8,10 @@ test('viewing things at a location', function(assert) {
   let firstLocation = server.create('location');
   server.createList('thing', thingsCount, {locationId: firstLocation.id});
 
-  visit('/location/1');
+  visit('/locations/1');
 
   andThen(function() {
-    assert.equal(currentURL(), '/location/1');
+    assert.equal(currentURL(), '/locations/1');
     assert.equal(find('.card').length, 4);
   });
 });
@@ -20,10 +20,10 @@ test('viewing a thing', function(assert) {
   let thing = server.create('location').createThing({name: 'Thing 1'});
   server.createList('property', 3, {thingId: thing.id});
 
-  visit('/thing/1');
+  visit('/things/1');
 
   andThen(function() {
-    assert.equal(currentURL(), '/thing/1');
+    assert.equal(currentURL(), '/things/1');
     assert.equal(find('[data-thing-id=1]').length, 1);
     assert.equal(find('[data-thing-id=1]').text(), 'Thing 1');
     assert.equal(find('h4.text-muted').text(), 'Location 1');
@@ -31,15 +31,15 @@ test('viewing a thing', function(assert) {
   });
 });
 
-test('navigating from a thing to it\'s lcoation', function(assert) {
+test('navigating from a thing to it\'s location', function(assert) {
   let thing = server.create('location').createThing({name: 'Thing 1'});
   server.createList('property', 3, {thingId: thing.id});
 
-  visit('/thing/1');
+  visit('/things/1');
   click('h4:contains(Location 1)');
 
   andThen(function() {
-    assert.equal(currentURL(), '/location/1');
+    assert.equal(currentURL(), '/locations/1');
     assert.equal(find('.card').length, 1);
   });
 });

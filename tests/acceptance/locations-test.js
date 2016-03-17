@@ -28,7 +28,7 @@ test('visiting /locations with exactly 1 location', function(assert) {
   visit('/locations');
 
   andThen(function() {
-    assert.equal(currentURL(), '/location/1', 'Was not redirected to only location.');
+    assert.equal(currentURL(), '/locations/1', 'Was not redirected to only location.');
     assert.equal(find('h2').text(), 'Location 1');
   });
 });

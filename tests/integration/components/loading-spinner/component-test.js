@@ -6,15 +6,14 @@ moduleForComponent('loading-spinner', 'Integration | Component | loading spinner
 });
 
 test('it renders', function(assert) {
-  
   // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
+  // Handle any actions with this.on('myAction', function(val) { ... });"
 
   this.render(hbs`{{loading-spinner}}`);
 
   assert.equal(this.$().text().trim(), '');
 
-  // Template block usage:" + EOL +
+  // Template block usage:"
   this.render(hbs`
     {{#loading-spinner}}
       template block text
