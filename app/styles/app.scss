@@ -1,9 +1,8 @@
 @import "variables";
 @import "layout";
-@import "bootstrap/scss/bootstrap";
+@import "bower_components/bootstrap/scss/bootstrap";
 @import "ember-power-select";
 
 
 // Components
-@import "components/empty-state";
-@import "components/loading-spinner";
+@import "pod-styles";
