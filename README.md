@@ -43,8 +43,14 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-<!-- TODO -->
-Not currently deployed.
+The app is deployed by building for production and committing the changes to the `gh-pages`
+branch. **Be sure to fetch and pull `master` first!**
+
+* `ember build --environment production`
+* `git checkout gh-pages`
+* `rm -rf assets && mv dist/* . && cp index.html 404.html`
+* `git add .`
+* `git commit -m "Deploying to gh-pages. \`date -u\`" && git push`
 
 ## Further Reading / Useful Links
 
