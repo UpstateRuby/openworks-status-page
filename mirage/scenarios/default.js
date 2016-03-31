@@ -8,7 +8,7 @@ export default function( server ) {
   let security = openworks.createThing({name: 'Security'});
 
   hvac.createProperty({name: 'Temperature', value: 752, unit: 'degF', precision: 1});
-  //hvac.createProperty({name: 'Humidity', value: 165, unit: '', precision: 1});
+  hvac.createProperty({name: 'Humidity', value: 165, unit: 'pct', precision: 1});
   internet.createProperty({name: 'Ping', value: 132, unit: 'ms', precision: 1});
   internet.createProperty({name: 'Uplink', value: 2487, unit: 'Mb/s', precision: 2});
   internet.createProperty({name: 'Downlink', value: 2258, unit: 'Mb/s', precision: 2});
