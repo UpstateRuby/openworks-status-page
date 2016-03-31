@@ -15,29 +15,5 @@
   {{else}}
   <p class="centered text-muted"><small>No properties are associated with {{thing.name}}.</small></p>
   {{/if}}
-  {{#liquid-if isAddingProperty class="adding-property"}}
-  <form>
-    <fieldset class="form-group">
-      {{input type="text" value=newProperty.name placeholder="Name" class="form-control"}}
-    </fieldset>
-    <fieldset class="form-group">
-      {{input type="text" value=newProperty.value placeholder="Value" class="form-control"}}
-    </fieldset>
-    <fieldset class="form-group">
-      {{#power-select options=units selected=newProperty.unit onchange=(action (mut newProperty.unit)) as |unit|}}
-        {{unit}}
-      {{/power-select}}
-    </fieldset>
-    <fieldset class="form-group">
-      {{input type="number" value=newProperty.precision class="form-control"}}
-    </fieldset>
-  </form>
-  <div class="btn-group btn-group-justified">
-    <a {{action "cancelAddingProperty"}} class="btn btn-danger-outline">Cancel</a>
-    <a {{action "saveNewProperty"}} class="btn btn-success-outline">Create</a>
-  </div>
-  {{else}}
-    <a {{action "addProperty"}} class="btn btn-success-outline btn-block">Add a Property</a>
-  {{/liquid-if}}
 </div>
 {{yeild}}
