@@ -22,6 +22,8 @@ export default DS.Model.extend({
   }.property('value', 'precision'),
   displayUnit: function () {
     let unit = this.get('unit') || '';
-    return Ember.String.htmlSafe(unit.replace('deg', '&deg;'));
+    unit = unit.replace('deg', '&deg;');
+    unit = unit.replace('pct', '%');
+    return Ember.String.htmlSafe(unit);
   }.property('unit')
 });
