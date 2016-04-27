@@ -14,13 +14,11 @@ test('it renders', function(assert) {
 });
 
 test('it sets input correctly', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });"
-
   const thing = { name: 'myThing' };
+
   this.set('model', thing);
 
-  this.render(hbs`{{thing-form}}`);
+  this.render(hbs`{{thing-form thing=model}}`);
 
-  assert.equal(this.$('input').text().trim(), thing.name);
+  assert.equal(this.$('input').val().trim(), thing.name);
 });
