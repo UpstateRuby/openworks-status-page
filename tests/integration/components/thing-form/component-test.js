@@ -6,19 +6,21 @@ moduleForComponent('thing-form', 'Integration | Component | thing form', {
 });
 
 test('it renders', function(assert) {
+  this.render(hbs`{{thing-form}}`);
+
+  assert.equal(this.$('label').text().trim(), 'Name:');
+  assert.equal(this.$('.btn.btn-success').text().trim(), 'Save');
+  assert.equal(this.$('.btn.btn-danger').text().trim(), 'Cancel');
+});
+
+test('it sets input correctly', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });"
 
+  const thing = { name: 'myThing' };
+  this.set('model', thing);
+
   this.render(hbs`{{thing-form}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:"
-  this.render(hbs`
-    {{#thing-form}}
-      template block text
-    {{/thing-form}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('input').text().trim(), thing.name);
 });
