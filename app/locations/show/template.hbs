@@ -1,4 +1,6 @@
-<h2>{{model.name}}</h2>
+<h2><span class="location-name">{{model.name}}</span>
+{{#link-to "things.new" class="btn btn-sm btn-primary"}}New{{/link-to}}
+</h2>
 <div class="row">
   {{#each model.things as |thing|}}
     <div class="col-md-3">
