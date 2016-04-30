@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -14,7 +15,7 @@ test('it renders', function(assert) {
 });
 
 test('it sets input correctly', function(assert) {
-  const thing = { name: 'myThing' };
+  const thing = Ember.Object.create( { name: "myThing" } );
 
   this.set('model', thing);
 
