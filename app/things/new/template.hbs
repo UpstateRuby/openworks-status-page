@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-offset-4 col-md-3">
-    {{status-card thing=model}}
+    {{status-card thing=model.thing}}
   </div>
 </div>
 <h1>Create a New Thing</h1>
-{{thing-form thing=model}}
+{{thing-form thing=model.thing locations=model.locations onCreate=(route-action "thingCreated" model.thing)}}
 {{outlet}}

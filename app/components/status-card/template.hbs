@@ -1,11 +1,9 @@
+{{#link-to "things.show" thing}}
+<h4 data-thing-id={{thing.id}} class="card-header thing-name">
+  {{thing.name}}
+</h4>
+{{/link-to}}
 <div class="card-block">
-  {{#link-to "things.show" thing}}
-  <h4 data-thing-id={{thing.id}} class="card-title thing-name">
-    {{thing.name}}
-  </h4>
-  {{/link-to}}
-  <h6 class="card-subtitle text-muted location-name">{{thing.location.name}}</h6>
-  <hr>
   {{#if thing.properties}}
   <ul class="list-unstyled">
     {{#each thing.properties as |property|}}

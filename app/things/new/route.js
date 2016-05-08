@@ -2,6 +2,17 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.createRecord('thing');
+    return Ember.RSVP.hash({
+      thing: this.store.createRecord('thing'),
+      locations: this.store.findAll('location')
+    });
+  },
+  afterModel(model, transition) {
+    model.thing.location = model.locations.get('firstObject');
+  },
+  actions: {
+    thingCreated(thing) {
+      this.transitionTo('locations.show', thing.location);
+    }
   }
 });
