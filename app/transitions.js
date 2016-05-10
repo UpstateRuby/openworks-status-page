@@ -8,7 +8,7 @@ export default function(){
   }
 
   // Routes
-
+/*
   this.transition(
     this.fromRoute('locations'),
     this.toRoute('location'),
@@ -53,5 +53,5 @@ export default function(){
     this.use('toDown'),
     this.reverse('toUp')
   );
-
+*/
 }
