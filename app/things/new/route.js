@@ -7,7 +7,7 @@ export default Ember.Route.extend({
       locations: this.store.findAll('location')
     });
   },
-  afterModel(model, transition) {
+  afterModel(model) {
     model.thing.location = model.locations.get('firstObject');
   },
   actions: {
