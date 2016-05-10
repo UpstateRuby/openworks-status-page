@@ -43,3 +43,50 @@ test('navigating from a thing to it\'s location', function(assert) {
     assert.equal(find('.card').length, 1);
   });
 });
+
+test('should do this for all things routes', function(assert){
+  visit('/things/');
+
+  andThen(function() {
+    assert.equal(this.$('.things-title').text().trim(), 'All the Things!');
+    //this test will break when we add the things.new button near title
+    assert.equal(this.$('.btn-primary').text().trim(), '');
+    //assert.equal(this.$('.btn-primary').text().trim(), 'Add a Thing');
+  });
+});
+
+test('should list zero things correctly', function(assert) {
+  visit('/things/');
+
+  andThen(function() {
+    assert.equal(this.$('.empty-thing-title').text().trim(), 'No Things Yet');
+    //this test will break when we add the things.new button under "No Things Yet"
+    assert.equal(this.$('.btn-success').text().trim(), '');
+    //assert.equal(this.$('.btn-success').text().trim(), 'Add a Thing');
+  });
+});
+
+test('should list one thing correctly', function(assert) {
+  server.create('location').createThing({name: 'Thing 1'});
+
+  visit('/things/');
+
+  andThen(function() {
+    let card = find('.card');
+    assert.equal(card.length, 1);
+  });
+});
+
+test('should list many things correctly', function(assert) {
+  let max = 10;
+  for(var i=0; i < max; i++) {
+    server.create('location').createThing({name: `Thing ${i+1}`});
+  }
+
+  visit('/things/');
+
+  andThen(function() {
+    let card = find('.card');
+    assert.equal(card.length, max);
+  });
+});

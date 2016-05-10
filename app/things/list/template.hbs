@@ -1,0 +1,18 @@
+<h2><span class="things-title">All the Things!</span>
+{{!-- create a new thing when it's ready!
+{{#link-to "things.new" class="btn btn-sm btn-primary"}}Add a thing{{/link-to}}
+ --}}
+ </h2>
+
+<div class="row">
+  {{#each model as |thing|}}
+      <div class="col-md-3">
+        {{status-card thing=thing}}
+      </div>
+  {{else}}
+      <div class="col-md-12">
+        {{empty-state-thing "No Things Yet"}}
+      </div>
+  {{/each}}
+</div>
+
