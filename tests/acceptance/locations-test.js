@@ -47,12 +47,11 @@ test('visiting /locations with 2 location', function(assert) {
 test('clicking New button navigates to /things/new', function(assert) {
   server.create('location');
 
-  const locationUrl = '/locations/1';
-  visit(locationUrl);
+  visit('/locations/1');
 
   andThen(function() {
     assert.equal(find('.location-name').text(), 'Location 1');
-    assert.equal(find('.btn-primary').text(), 'New');
+    assert.ok(find('.btn-primary').text().indexOf('Create a New Thing') !== -1);
 
     click('.btn-primary');
 

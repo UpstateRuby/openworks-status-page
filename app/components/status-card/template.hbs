@@ -5,13 +5,18 @@
 {{/link-to}}
 <div class="card-block">
   {{#if thing.properties}}
-  <ul class="list-unstyled">
-    {{#each thing.properties as |property|}}
-    <li><strong>{{property.name}}:</strong> {{property-value property}}</li>
-    {{/each}}
-  </ul>
-  {{else}}
-  <p class="centered text-muted"><small>No properties are associated with {{thing.name}}.</small></p>
+    <ul class="list-unstyled">
+      {{#each thing.properties as |property|}}
+        <li><strong>{{property.name}}:</strong> {{property-value property}}</li>
+      {{/each}}
+    </ul>
+  {{else if thing.name}}
+    <p class="centered text-muted"><small>No properties are associated with {{thing.name}}.</small></p>
+  {{/if}}
+</div>
+<div class="card-footer card-footer-no-background text-muted">
+  {{#if thing.propertiesLastUpdated}}
+    <small>Updated {{moment-from-now thing.propertiesLastUpdated interval=5000}}</small>
   {{/if}}
 </div>
 {{yeild}}

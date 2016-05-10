@@ -13,8 +13,8 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{status-card}}`);
 
-  assert.ok(this.$().text().trim().indexOf('No properties are associated with') === 0);
-  assert.ok(this.$().text().trim().indexOf('Add a Property'));
+  assert.ok(this.$().text().trim().indexOf('No properties are associated with') === -1);
+  assert.ok(this.$().text().trim().indexOf('Add a Property') === -1);
 
   // Template block usage:
   this.render(hbs`

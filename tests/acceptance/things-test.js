@@ -12,7 +12,7 @@ test('viewing things at a location', function(assert) {
 
   andThen(function() {
     assert.equal(currentURL(), '/locations/1');
-    assert.equal(find('.card').length, 4);
+    assert.equal(find('.card .card-header[data-thing-id]').length, 4);
   });
 });
 
@@ -40,6 +40,6 @@ test('navigating from a thing to it\'s location', function(assert) {
 
   andThen(function() {
     assert.equal(currentURL(), '/locations/1');
-    assert.equal(find('.card').length, 1);
+    assert.equal(find('.card .card-header[data-thing-id]').length, 1);
   });
 });

@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['card'],
+  attributeBindings: ['tabindex'],
+  tabindex: 0,
   units: ['Fahrenheit', 'Percentage'],
   actions: {
     editName() {

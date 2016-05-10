@@ -1,5 +1,5 @@
-<h2><span class="location-name">{{model.name}}</span>
-{{#link-to "things.new" class="btn btn-sm btn-primary"}}New{{/link-to}}
+<h2>
+  <span class="location-name">{{model.name}}</span>
 </h2>
 <div class="row">
   {{#each model.things as |thing index|}}
@@ -10,7 +10,9 @@
   <div class="col-md-3">
     <div class="card">
       <div class="card-block">
-        {{#link-to "things.new" class="btn btn-sm btn-primary"}}Create a New Thing{{/link-to}}
+        {{#link-to "things.new" class="btn btn-sm btn-primary"}}
+          Create a New Thing
+        {{/link-to}}
       </div>
     </div>
   </div>
