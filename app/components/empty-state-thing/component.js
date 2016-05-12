@@ -1,4 +1,10 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const EmptyStateThingComponent = Ember.Component.extend({
 });
+
+EmptyStateThingComponent.reopenClass({
+  positionalParams: ['title']
+});
+
+export default EmptyStateThingComponent;
