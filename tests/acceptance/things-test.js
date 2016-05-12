@@ -8,10 +8,10 @@ test('viewing things at a location', function(assert) {
   let firstLocation = server.create('location');
   server.createList('thing', thingsCount, {locationId: firstLocation.id});
 
-  visit('/locations/1');
+  visit('/locations/1/things');
 
   andThen(function() {
-    assert.equal(currentURL(), '/locations/1');
+    assert.equal(currentURL(), '/locations/1/things');
     assert.equal(find('.card .card-header[data-thing-id]').length, 4);
   });
 });
@@ -39,7 +39,7 @@ test('navigating from a thing to it\'s location', function(assert) {
   click('h4:contains(Location 1)');
 
   andThen(function() {
-    assert.equal(currentURL(), '/locations/1');
+    assert.equal(currentURL(), '/locations/1/things');
     assert.equal(find('.card .card-header[data-thing-id]').length, 1);
   });
 });

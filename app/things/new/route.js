@@ -12,7 +12,7 @@ export default Ember.Route.extend({
   },
   actions: {
     thingCreated(thing) {
-      this.transitionTo('locations.show', thing.location);
+      this.transitionTo('locations.show.things.list', thing.location);
     }
   }
 });

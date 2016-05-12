@@ -1,0 +1,17 @@
+<div class="row">
+  {{#each model as |thing index|}}
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      {{#status-card thing=thing}}{{/status-card}}
+    </div>
+  {{/each}}
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card">
+      <div class="card-block">
+        {{#link-to "things.new" class="btn btn-sm btn-primary"}}
+          Create a New Thing
+        {{/link-to}}
+      </div>
+    </div>
+  </div>
+  {{liquid-outlet}}
+</div>

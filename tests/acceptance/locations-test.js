@@ -28,7 +28,7 @@ test('visiting /locations with exactly 1 location', function(assert) {
   visit('/locations');
 
   andThen(function() {
-    assert.equal(currentURL(), '/locations/1', 'Was not redirected to only location.');
+    assert.equal(currentURL(), '/locations/1/things', 'Was not redirected to only location.');
     assert.equal(find('.location-name').text(), 'Location 1');
   });
 });
@@ -47,7 +47,7 @@ test('visiting /locations with 2 location', function(assert) {
 test('clicking New button navigates to /things/new', function(assert) {
   server.create('location');
 
-  visit('/locations/1');
+  visit('/locations/1/things');
 
   andThen(function() {
     assert.equal(find('.location-name').text(), 'Location 1');
