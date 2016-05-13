@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('show', { path: ':location_id' }, function() {
       this.route('things', function() {
         this.route('list', { path: '/' });
+        this.route('new');
       });
     });
   });

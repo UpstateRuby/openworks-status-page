@@ -43,3 +43,14 @@ test('navigating from a thing to it\'s location', function(assert) {
     assert.equal(find('.card .card-header[data-thing-id]').length, 1);
   });
 });
+
+test('creating a new thing from a location', function(assert) {
+  server.create('location').createThing({name: 'Thing 1'});
+
+  visit('/locations/1/things');
+  click('.btn:contains(Create a New Thing)');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/locations/1/things/new');
+  });
+});
