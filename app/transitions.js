@@ -6,7 +6,7 @@ export default function(){
   if (Ember.testing) {
     this.setDefault({duration: 10 });
   }
-
+/*
   // Routes
 
   this.transition(
@@ -53,5 +53,5 @@ export default function(){
     this.use('toDown'),
     this.reverse('toUp')
   );
-
+*/
 }
