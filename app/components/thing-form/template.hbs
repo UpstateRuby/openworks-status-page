@@ -1,0 +1,19 @@
+<form>
+  <fieldset class="form-group">
+    <label>Name:</label>
+    {{input name="name" value=thing.name class="form-control"}}
+  </fieldset>
+  <fieldset class="form-group">
+    {{#power-select
+      selected=thing.location
+      options=locations
+      onchange=(action (mut thing.location))
+      as |location|
+    }}
+      {{location.name}}
+    {{/power-select}}
+  </fieldset>
+  <button class="btn btn-success" {{action "saveThing"}}>Save</button>
+  <button class="btn btn-danger">Cancel</button>
+</form>
+{{yield}}

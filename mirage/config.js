@@ -15,7 +15,8 @@ export default function() {
   this.get('/locations');
   this.post('/locations');
   this.get('/locations/:id');
-  this.put('/locations/:id'); // or this.patch
+  this.put('/locations/:id');
+  this.patch('/locations/:id');
   this.del('/locations/:id');
 
   this.get('/locations/:id/things');
@@ -24,11 +25,13 @@ export default function() {
   this.post('/things');
   this.get('/things/:id');
   this.put('/things/:id');
+  this.patch('/things/:id');
   this.del('/things/:id');
 
   this.get('/properties');
   this.post('/properties');
   this.get('/properties/:id');
   this.put('/properties/:id');
+  this.patch('/properties/:id');
   this.del('/properties/:id');
 }

@@ -9,11 +9,17 @@ Router.map(function() {
   this.route('locations', function() {
     this.route('list', { path: '/' });
     this.route('new');
-    this.route('show', { path: ':location_id' });
+    this.route('show', { path: ':location_id' }, function() {
+      this.route('things', function() {
+        this.route('list', { path: '/' });
+        this.route('new');
+      });
+    });
   });
 
   this.route('things', function() {
     this.route('show', { path: ':thing_id' });
+    this.route('new');
   });
 });
 

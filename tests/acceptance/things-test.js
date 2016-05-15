@@ -8,11 +8,11 @@ test('viewing things at a location', function(assert) {
   let firstLocation = server.create('location');
   server.createList('thing', thingsCount, {locationId: firstLocation.id});
 
-  visit('/locations/1');
+  visit('/locations/1/things');
 
   andThen(function() {
-    assert.equal(currentURL(), '/locations/1');
-    assert.equal(find('.card').length, 4);
+    assert.equal(currentURL(), '/locations/1/things');
+    assert.equal(find('.card .card-header[data-thing-id]').length, 4);
   });
 });
 
@@ -39,7 +39,18 @@ test('navigating from a thing to it\'s location', function(assert) {
   click('h4:contains(Location 1)');
 
   andThen(function() {
-    assert.equal(currentURL(), '/locations/1');
-    assert.equal(find('.card').length, 1);
+    assert.equal(currentURL(), '/locations/1/things');
+    assert.equal(find('.card .card-header[data-thing-id]').length, 1);
+  });
+});
+
+test('creating a new thing from a location', function(assert) {
+  server.create('location').createThing({name: 'Thing 1'});
+
+  visit('/locations/1/things');
+  click('.btn:contains(Create a New Thing)');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/locations/1/things/new');
   });
 });

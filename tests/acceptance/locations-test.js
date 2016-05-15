@@ -28,8 +28,8 @@ test('visiting /locations with exactly 1 location', function(assert) {
   visit('/locations');
 
   andThen(function() {
-    assert.equal(currentURL(), '/locations/1', 'Was not redirected to only location.');
-    assert.equal(find('h2').text(), 'Location 1');
+    assert.equal(currentURL(), '/locations/1/things', 'Was not redirected to only location.');
+    assert.equal(find('.location-name').text(), 'Location 1');
   });
 });
 
@@ -43,3 +43,36 @@ test('visiting /locations with 2 location', function(assert) {
     assert.equal(find('A:contains("Location")').length, 2);
   });
 });
+
+test('clicking Create a New Things button navigates to locations/:id/things/new', function(assert) {
+  server.create('location');
+
+  visit('/locations/1/things');
+
+  andThen(function() {
+    assert.equal(find('.location-name').text(), 'Location 1');
+    assert.ok(find('.btn.btn-primary').text().indexOf('Create a New Thing') !== -1);
+
+    click('.btn.btn-primary');
+
+    andThen(function() {
+      assert.equal(currentURL(), '/locations/1/things/new', 'Should have redirected');
+    });
+  });
+});
+
+test('creating a new thing within a location', function(assert) {
+  server.create('location', 1).createThing();
+  const newThingName = 'New Thing';
+
+  visit('/locations/1/things/new');
+  fillIn('input[name=name]', newThingName);
+  click('.btn:contains(Save)');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/locations/1/things', 'Should be redirected to locations/show/things');
+    assert.ok(find('.thing-name').text().indexOf(newThingName) !== -1);
+    assert.equal(find('.thing-name').length, 2);
+  });
+});
+
