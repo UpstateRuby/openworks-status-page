@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  flashMessages: Ember.inject.service(),
   actions: {
     saveThing() {
       if (typeof this.get("beforeCreate") === "function") {
@@ -9,10 +10,11 @@ export default Ember.Component.extend({
           return false;
         }
       }
-      this.get('thing').save().then(() => {
+      this.get('thing').save().then((thing) => {
+        this.get('flashMessages').success(thing.get('name') + ' created successfully!');
         this.get("onCreate")();
       }, () => {
-        alert("Save Failed");
+        this.get('flashMessages').danger('Something went wrong.');
       });
     },
     cancel() {

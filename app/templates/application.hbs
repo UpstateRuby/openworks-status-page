@@ -9,7 +9,10 @@
   </div>
 </nav>
 
-{{liquid-outlet class="container"}}
+<div class="container">
+  {{flash-container queue=flashMessages.queue}}
+  {{liquid-outlet}}
+</div>
 
 <nav class="navbar navbar-fixed-bottom navbar-light bg-faded">
   <span class="text-muted">Built with ❤ by <a href="https://github.com/orgs/UpstateRuby/people">Upstate Ruby</a></span>
