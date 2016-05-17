@@ -12,6 +12,10 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
+    flashMessageDefaults: {
+      timeout: 5000,
+      showProgress: true
+    },
 
     APP: {
       // Here you can pass flags/options to your application instance

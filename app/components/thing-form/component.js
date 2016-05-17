@@ -3,12 +3,20 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   actions: {
     saveThing() {
-      this.get('thing').save().then((thing) => {
-        thing.get('location').get('things').pushObject(thing).save();
+      if (typeof this.get("beforeCreate") === "function") {
+        let success = this.get("beforeCreate")();
+        if (!success) {
+          return false;
+        }
+      }
+      this.get('thing').save().then(() => {
         this.get("onCreate")();
       }, () => {
         alert("Save Failed");
       });
+    },
+    cancel() {
+      this.get("onCancel")();
     }
   }
 });

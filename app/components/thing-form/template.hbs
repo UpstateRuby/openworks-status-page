@@ -1,9 +1,9 @@
-<form>
-  <fieldset class="form-group">
-    <label>Name:</label>
-    {{input name="name" value=thing.name class="form-control"}}
-  </fieldset>
-  <fieldset class="form-group">
+<h4 data-thing-id={{thing.id}} class="card-header thing-name">
+  <label class="sr-only">Name:</label>
+  {{input name="name" value=thing.name class="form-control" placeholder="Name" enter="saveThing"}}
+</h4>
+<div class="card-block">
+  {{#if locations}}
     {{#power-select
       selected=thing.location
       options=locations
@@ -12,8 +12,23 @@
     }}
       {{location.name}}
     {{/power-select}}
-  </fieldset>
+  {{/if}}
+  {{#if thing.properties}}
+    <ul class="list-unstyled">
+      {{#each thing.properties as |property|}}
+        <li><strong>{{property.name}}:</strong> {{property-value property}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+  <p class="centered text-muted"><small>Controls to add properties here.</small></p>
+</div>
+<div class="card-footer card-footer-no-background text-muted">
   <button class="btn btn-success" {{action "saveThing"}}>Save</button>
-  <button class="btn btn-danger">Cancel</button>
-</form>
+  <button class="btn btn-danger" {{action "cancel"}}>Cancel</button>
+<!--
+  {{#if thing.propertiesLastUpdated}}
+    <small>Updated {{moment-from-now thing.propertiesLastUpdated interval=5000}}</small>
+  {{/if}}
+-->
+</div>
 {{yield}}
