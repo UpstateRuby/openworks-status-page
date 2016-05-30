@@ -1,17 +1,22 @@
 import Ember from "ember";
 
 export default function(){
-  let duration = 800;
+  let duration = 400;
   this.setDefault({duration: duration });
   if (Ember.testing) {
     this.setDefault({duration: 10 });
   }
 
+  this.transition(
+    //this.fromRoute('loading'),
+    this.use('fade', {duration: duration/2})
+  );
+
   // Routes
 /*
   this.transition(
-    this.fromRoute('locations'),
-    this.toRoute('location'),
+    this.fromRoute('locations.show.things'),
+    this.toRoute('things.show'),
     this.use('toLeft'),
     this.reverse('toRight')
   );
