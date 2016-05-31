@@ -18,6 +18,7 @@ Router.map(function() {
   });
 
   this.route('things', function() {
+    this.route('list', { path: '/' });
     this.route('show', { path: ':thing_id' });
     this.route('new');
   });
