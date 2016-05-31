@@ -1,17 +1,17 @@
 <div class="row">
-  {{#each model as |thing index|}}
+  {{#each model as |thing|}}
     <div class="col-sm-6 col-md-4 col-lg-3">
-      {{#status-card thing=thing}}{{/status-card}}
+      {{status-card thing=thing}}
     </div>
   {{/each}}
+  {{liquid-outlet}}
   <div class="col-sm-6 col-md-4 col-lg-3">
     <div class="card">
       <div class="card-block">
-        {{#link-to "locations.show.things.new" class="btn btn-sm btn-primary"}}
+        {{#link-to "locations.show.things.list.new" class="btn btn-sm btn-primary"}}
           Create a New Thing
         {{/link-to}}
       </div>
     </div>
   </div>
-  {{liquid-outlet}}
 </div>

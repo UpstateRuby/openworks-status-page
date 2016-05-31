@@ -11,3 +11,11 @@
   background-color: transparent;
   border-top: 0.0625rem solid transparent;
 }
+
+a {
+  color: $body-color;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

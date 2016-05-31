@@ -11,8 +11,9 @@ Router.map(function() {
     this.route('new');
     this.route('show', { path: ':location_id' }, function() {
       this.route('things', function() {
-        this.route('list', { path: '/' });
-        this.route('new');
+        this.route('list', { path: '/' }, function() {
+          this.route('new');
+        });
       });
     });
   });

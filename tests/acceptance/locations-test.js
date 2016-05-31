@@ -61,8 +61,8 @@ test('clicking Create a New Things button navigates to locations/:id/things/new'
   });
 });
 
-test('creating a new thing within a location', function(assert) {
-  server.create('location', 1).createThing();
+test('creating a new thing within a location with only one location', function(assert) {
+  server.create('location').createThing();
   const newThingName = 'New Thing';
 
   visit('/locations/1/things/new');
@@ -73,6 +73,39 @@ test('creating a new thing within a location', function(assert) {
     assert.equal(currentURL(), '/locations/1/things', 'Should be redirected to locations/show/things');
     assert.ok(find('.thing-name').text().indexOf(newThingName) !== -1);
     assert.equal(find('.thing-name').length, 2);
+  });
+});
+
+test('creating a new thing within a location with multiple locations', function(assert) {
+  server.create('location').createThing();
+  server.create('location').createThing();
+  const newThingName = 'New Thing';
+  const locationId = 2;
+
+  visit('/locations/' + locationId + '/things/new');
+  fillIn('input[name=name]', newThingName);
+  click('.btn:contains(Save)');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/locations/' + locationId + '/things', 'Should be redirected to locations/show/things');
+    assert.ok(find('.thing-name').text().indexOf(newThingName) !== -1);
+    assert.equal(find('.thing-name').length, 2);
+  });
+});
+
+test('clicking Cancel navigates to locations/:id/things and does not create a new thing', function(assert) {
+  const location1 = server.create('location');
+  const thingCount = 4;
+  server.createList('thing', thingCount, {locationId: location1.id});
+
+  visit('/locations/1/things/new');
+  click('.btn:contains(Cancel)');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/locations/1/things', 'Should not redirect');
+    assert.equal(find('.location-name').text(), 'Location 1');
+    assert.ok(find('.thing-name').length === thingCount);
+    assert.ok(find('.btn.btn-primary').text().indexOf('Create a New Thing') !== -1);
   });
 });
 
