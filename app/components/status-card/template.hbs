@@ -1,8 +1,22 @@
-{{#link-to "things.show" thing}}
-<h4 data-thing-id={{thing.id}} class="card-header thing-name">
-  {{thing.name}}
-</h4>
-{{/link-to}}
+{{#if showLocation}}
+  <h4 data-thing-id={{thing.id}} class="card-header thing-name">
+  {{#link-to "things.show" thing}}
+    {{thing.name}}
+  {{/link-to}}
+  <br>
+  {{#link-to "locations.show.things" thing.location}}
+    <small class="card-subtitle text-muted">
+      {{thing.location.name}}
+    </small>
+  {{/link-to}}
+  </h4>
+{{else}}
+  {{#link-to "things.show" thing}}
+  <h4 data-thing-id={{thing.id}} class="card-header thing-name">
+    {{thing.name}}
+  </h4>
+  {{/link-to}}
+{{/if}}
 <div class="card-block">
   {{#if thing.properties}}
     <ul class="list-unstyled">

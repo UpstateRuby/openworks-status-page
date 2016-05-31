@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   attributeBindings: ['tabindex'],
   tabindex: 0,
   units: ['Fahrenheit', 'Percentage'],
+  showLocation: false,
   actions: {
     editName() {
       this.set('isEditingName', true);
