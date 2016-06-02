@@ -8,19 +8,25 @@ export default function(){
   }
 
   this.transition(
-    //this.fromRoute('loading'),
-    this.use('fade', {duration: duration/2})
+    this.fromRoute('loading'),
+    this.use('crossFade', {duration: duration/2})
+  );
+
+  this.transition(
+    this.fromRoute('locations.show.things.list.index'),
+    this.toRoute('locations.show.things.list.new'),
+    this.useAndReverse('crossFade')
   );
 
   // Routes
-/*
   this.transition(
-    this.fromRoute('locations.show.things'),
-    this.toRoute('things.show'),
+    this.fromRoute('locations'),
+    this.toRoute('things'),
     this.use('toLeft'),
     this.reverse('toRight')
   );
 
+/*
   this.transition(
     this.fromRoute('locations'),
     this.toRoute('things'),
