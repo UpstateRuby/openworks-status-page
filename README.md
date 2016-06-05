@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/UpstateRuby/openworks-status-page.png?label=ready&title=Ready)](https://waffle.io/UpstateRuby/openworks-status-page)
 [![Build Status](https://travis-ci.org/UpstateRuby/openworks-status-page.svg?branch=master)](https://travis-ci.org/UpstateRuby/openworks-status-page)
 
 # Openworks-status-page
