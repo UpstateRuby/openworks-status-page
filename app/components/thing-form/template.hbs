@@ -1,7 +1,14 @@
-<h4 data-thing-id={{thing.id}} class="card-header thing-name">
-  <label class="sr-only">Name:</label>
-  {{input name="name" value=thing.name class="form-control" placeholder="Name" enter="saveThing"}}
-</h4>
+<div data-thing-id={{thing.id}} class="card-header thing-name">
+  <label class="form-control-label sr-only">Name:</label>
+  {{validated-input
+    name="name"
+    model=thing
+    valuePath="name"
+    placeholder="Name"
+    enter=(action "saveThing")
+    autofocus=true
+  }}
+</div>
 <div class="card-block">
   {{#if locations}}
     {{#power-select
@@ -23,7 +30,7 @@
   <p class="centered text-muted"><small>Controls to add properties here.</small></p>
 </div>
 <div class="card-footer card-footer-no-background text-muted">
-  <button class="btn btn-success" {{action "saveThing"}}>Save</button>
+  <button class="btn btn-success" disabled={{v-get thing 'isInvalid'}} {{action "saveThing"}}>Save</button>
   <button class="btn btn-danger" {{action "cancel"}}>Cancel</button>
 <!--
   {{#if thing.propertiesLastUpdated}}

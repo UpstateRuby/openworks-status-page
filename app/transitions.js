@@ -15,7 +15,7 @@ export default function(){
   this.transition(
     this.fromRoute('locations.show.things.list.index'),
     this.toRoute('locations.show.things.list.new'),
-    this.useAndReverse('crossFade')
+    this.use('crossFade')
   );
 
   // Routes

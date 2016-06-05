@@ -1,0 +1,10 @@
+<div class="form-group">
+  {{log args}}
+  {{input type=type value=value placeholder=placeholder class=inputClass name=valuePath autofocus=autofocus enter=enter}}
+
+  {{#if showMessage}}
+  <small class="text-help">
+    {{v-get model valuePath 'message'}}
+  </small>
+  {{/if}}
+</div>
